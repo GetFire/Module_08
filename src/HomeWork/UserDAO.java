@@ -1,16 +1,35 @@
 package HomeWork;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
-public class UserDAO<User> extends AbstractDAOImpl {
-    private List<User> list = new ArrayList<>();
+public class UserDAO extends AbstractDAOImpl<User> {
 
-    public List<User> getList() {
-        return list;
+
+    public UserDAO() {
+        save(new User("Дмитрий"));
+        save(new User("Алексей"));
+        save(new User("Михаил"));
     }
 
-    public void setList(List<User> list) {
-        this.list = list;
+    @Override
+
+    public void deleteById(long id) {
+        for (User user : dataBase) {
+            if (user.getId() == id)
+                dataBase.remove(user);
+        }
+
+    }
+
+
+    @Override
+    public User getByID(long id) {
+        for (User user : dataBase) {
+            if (user.getId()==id)
+                return user;
+        }
+
+        return null;
     }
 }
