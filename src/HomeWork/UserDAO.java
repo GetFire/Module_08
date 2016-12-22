@@ -1,7 +1,6 @@
 package HomeWork;
 
 
-import java.util.List;
 
 public class UserDAO extends AbstractDAOImpl<User> {
 
