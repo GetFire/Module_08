@@ -32,13 +32,16 @@ public class AbstractDAOImpl<T> implements AbstractDAO<T> {
 
     @Override
     public void deleteById(long id) {
+        int aId=(int)id;
+        dataBase.remove(aId);
 
 
     }
 
     @Override
     public T getByID(long id) {
-        return null;
+        int aId=(int) id;
+        return dataBase.get(aId);
     }
 
     public List<T> getDataBase() {
